@@ -1,11 +1,6 @@
 <template>
-    <div class="v-container">
+    <div class="v-container mb-20">
         <navbar />
         <NuxtPage />
-        <!-- <personal /> -->
-        <!-- <social /> -->
-        <!-- <education /> -->
-        <!-- <skill /> -->
-        <!-- </div> -->
     </div>
 </template>

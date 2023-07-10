@@ -6,7 +6,7 @@
         <v-divider></v-divider>
     </div>
     <v-row>
-        <v-col cols="12" sm="12" md="6" lg="4">
+        <v-col cols="12" sm="12" md="6" lg="6">
             <v-text-field
                 variant="outlined"
                 v-model="linkedin"
@@ -14,7 +14,7 @@
                 label="Linkedin"
             ></v-text-field>
         </v-col>
-        <v-col cols="12" sm="12" md="6" lg="4">
+        <v-col cols="12" sm="12" md="6" lg="6">
             <v-text-field
                 variant="outlined"
                 v-model="twitter"
@@ -22,7 +22,7 @@
                 label="Twitter"
             ></v-text-field>
         </v-col>
-        <v-col cols="12" sm="12" md="6" lg="4">
+        <v-col cols="12" sm="12" md="6" lg="6">
             <v-text-field
                 variant="outlined"
                 v-model="instagram"
@@ -30,7 +30,15 @@
                 label="Instagram"
             ></v-text-field>
         </v-col>
-        <v-col cols="12" sm="12" md="6" lg="4">
+        <v-col cols="12" sm="12" md="6" lg="6">
+            <v-text-field
+                variant="outlined"
+                v-model="facebook"
+                append-inner-icon="mdi-facebook"
+                label="Facebook"
+            ></v-text-field>
+        </v-col>
+        <v-col cols="12" sm="12" md="6" lg="6">
             <v-text-field
                 variant="outlined"
                 v-model="github"
@@ -38,7 +46,7 @@
                 label="Github"
             ></v-text-field>
         </v-col>
-        <v-col cols="12" sm="12" md="6" lg="4">
+        <v-col cols="12" sm="12" md="6" lg="6">
             <v-text-field
                 variant="outlined"
                 v-model="website"
@@ -75,6 +83,7 @@ export default {
             instagram: '',
             twitter: '',
             website: '',
+            facebook: '',
         }
     },
 
@@ -84,6 +93,7 @@ export default {
         this.instagram = localStorage.getItem('instagram')
         this.twitter = localStorage.getItem('twitter')
         this.website = localStorage.getItem('website')
+        this.facebook = localStorage.getItem('facebook')
     },
     methods: {
         saveData() {
@@ -95,6 +105,7 @@ export default {
             )
             localStorage.setItem('twitter', this.twitter ? this.twitter : '')
             localStorage.setItem('website', this.website ? this.website : '')
+            localStorage.setItem('facebook', this.facebook ? this.facebook : '')
             this.$router.push({ name: 'education' })
         },
         back() {

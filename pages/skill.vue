@@ -5,14 +5,14 @@
     </div>
 
     <v-row v-for="(item, i) in skills" class="d-flex justify-space-evenly">
-        <v-col cols="10" sm="10" md="6" lg="4">
+        <v-col cols="10" sm="10" md="10" lg="10">
             <v-text-field
                 variant="outlined"
                 label="Skill"
                 v-model="item.skill"
             ></v-text-field>
         </v-col>
-        <v-col cols="2" sm="2" md="6" lg="4">
+        <v-col cols="2" sm="2" md="2" lg="2">
             <v-btn
                 v-if="i != 0"
                 class="mr-4 mt-2"

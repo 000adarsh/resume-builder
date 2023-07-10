@@ -1,25 +1,36 @@
 <template>
     <div class="my-4">
-        <v-card-text class="text-center text-h4 py-0">Languages</v-card-text>
+        <v-card-text class="text-center text-h4 py-0"
+            >Project Developed</v-card-text
+        >
         <v-divider></v-divider>
     </div>
 
-    <v-row v-for="(item, i) in languages" class="d-flex justify-space-between">
-        <v-col cols="12" sm="12" md="6" lg="6">
+    <v-row v-for="(item, i) in projects" class="d-flex justify-space-between">
+        <v-col cols="12" sm="12" md="3" lg="3">
             <v-text-field
                 variant="outlined"
-                label="Language"
-                v-model="item.language"
+                label="Title / Name"
+                v-model="item.title"
             ></v-text-field>
         </v-col>
-        <v-col cols="12" sm="12" md="5" lg="5">
-            <v-select
-                label="Select"
-                :items="['Fluent', 'Medium', 'Begginer']"
+
+        <v-col cols="12" sm="5" md="3" lg="3">
+            <v-text-field
                 variant="outlined"
-                v-model="item.select"
-            ></v-select>
+                label="Link"
+                v-model="item.link"
+            ></v-text-field>
         </v-col>
+
+        <v-col cols="12" sm="12" md="5" lg="5">
+            <v-text-field
+                variant="outlined"
+                label="Description"
+                v-model="item.description"
+            ></v-text-field>
+        </v-col>
+
         <v-col cols="12" sm="12" md="1" lg="1">
             <v-btn
                 v-if="i != 0"
@@ -27,14 +38,14 @@
                 icon="mdi-delete"
                 size="small"
                 color="error"
-                @click="languageRemove(i)"
+                @click="projectRemove(i)"
             >
             </v-btn>
         </v-col>
     </v-row>
     <v-row>
         <v-spacer></v-spacer>
-        <v-btn class="mx-3 mb-6" color="primary" @click="languageAdder()">
+        <v-btn class="mx-3 mb-6" color="primary" @click="projectAdder()">
             Add
         </v-btn>
     </v-row>
@@ -60,27 +71,27 @@
 <script>
 export default {
     data: () => ({
-        languages: [{}],
+        projects: [{}],
     }),
     mounted() {
-        const language = JSON.parse(localStorage.getItem('languages'))
-        if (language) {
-            this.languages = language
+        const project = JSON.parse(localStorage.getItem('projects'))
+        if (project) {
+            this.projects = project
         }
     },
     methods: {
-        languageAdder() {
-            this.languages.push({})
+        projectAdder() {
+            this.projects.push({})
         },
-        languageRemove(i) {
-            this.languages.splice(i, 1)
+        projectRemove(i) {
+            this.projects.splice(i, 1)
         },
         saveData() {
-            localStorage.setItem('languages', JSON.stringify(this.languages))
-            this.$router.push({ name: 'project' })
+            localStorage.setItem('projects', JSON.stringify(this.projects))
+            this.$router.push({ name: 'preview' })
         },
         back() {
-            this.$router.push({ name: 'skill' })
+            this.$router.push({ name: 'language' })
         },
     },
 }

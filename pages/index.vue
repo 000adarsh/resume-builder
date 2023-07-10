@@ -77,8 +77,9 @@ export default {
             about: '',
         }
     },
-
+    created() {},
     mounted() {
+        localStorage.clear()
         this.firstname = localStorage.getItem('firstname')
         this.lastname = localStorage.getItem('lastname')
         this.phone = localStorage.getItem('phone')
