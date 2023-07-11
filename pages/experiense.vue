@@ -3,7 +3,7 @@
         <v-card-text class="text-center text-h4 py-0">Experienses</v-card-text>
         <v-divider></v-divider>
     </div>
-    <v-card v-for="(item, i) in projects" class="my-2 pa-2" elevation="2">
+    <v-card v-for="(item, i) in experienses" class="my-2 pa-2" elevation="2">
         <div class="d-flex justify-end mb-2 d-md-none">
             <v-btn
                 v-if="i != 0"
@@ -33,8 +33,8 @@
             <v-col cols="12" sm="12" md="5" lg="5" class="pb-0">
                 <v-text-field
                     variant="outlined"
-                    label="Time Duration"
-                    v-model="item.time"
+                    label="Duration"
+                    v-model="item.duration"
                 ></v-text-field>
             </v-col>
 
@@ -82,27 +82,30 @@
 <script>
 export default {
     data: () => ({
-        projects: [{}],
+        experienses: [{}],
     }),
     mounted() {
-        const project = JSON.parse(localStorage.getItem('projects'))
+        const project = JSON.parse(localStorage.getItem('experienses'))
         if (project) {
-            this.projects = project
+            this.experienses = project
         }
     },
     methods: {
         experienseAdder() {
-            this.projects.push({})
+            this.experienses.push({})
         },
         experienseRemove(i) {
-            this.projects.splice(i, 1)
+            this.experienses.splice(i, 1)
         },
         saveData() {
-            localStorage.setItem('projects', JSON.stringify(this.projects))
+            localStorage.setItem(
+                'experienses',
+                JSON.stringify(this.experienses)
+            )
             this.$router.push({ name: 'preview' })
         },
         back() {
-            this.$router.push({ name: 'language' })
+            this.$router.push({ name: 'project' })
         },
     },
 }

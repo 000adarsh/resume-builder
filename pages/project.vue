@@ -6,7 +6,7 @@
         <v-divider></v-divider>
     </div>
     <v-card
-        v-for="(item, i) in experienses"
+        v-for="(item, i) in projects"
         width="100%"
         height="100%"
         class="pa-2 my-5"
@@ -18,7 +18,7 @@
                 icon="mdi-delete"
                 size="small"
                 color="error"
-                @click="experienseRemove(i)"
+                @click="projectRemove(i)"
             ></v-btn>
         </div>
         <v-row>
@@ -59,8 +59,8 @@
             >
                 <v-text-field
                     variant="outlined"
-                    label="Duration"
-                    v-model="item.duration"
+                    label="Description"
+                    v-model="item.description"
                 ></v-text-field>
             </v-col>
 
@@ -72,7 +72,7 @@
                         icon="mdi-delete"
                         size="small"
                         color="error"
-                        @click="experienseRemove(i)"
+                        @click="projectRemove(i)"
                     >
                     </v-btn>
                 </div>
@@ -82,7 +82,7 @@
 
     <v-row>
         <v-spacer></v-spacer>
-        <v-btn class="mx-3 mb-6" color="primary" @click="experienseAdder()">
+        <v-btn class="mx-3 mb-6" color="primary" @click="projectAdder()">
             Add
         </v-btn>
     </v-row>
@@ -108,26 +108,23 @@
 <script>
 export default {
     data: () => ({
-        experienses: [{}],
+        projects: [{}],
     }),
     mounted() {
-        const experiense = JSON.parse(localStorage.getItem('experienses'))
-        if (experiense) {
-            this.experienses = experiense
+        const project = JSON.parse(localStorage.getItem('projects'))
+        if (project) {
+            this.projects = project
         }
     },
     methods: {
-        experienseAdder() {
-            this.experienses.push({})
+        projectAdder() {
+            this.projects.push({})
         },
-        experienseRemove(i) {
-            this.experienses.splice(i, 1)
+        projectRemove(i) {
+            this.projects.splice(i, 1)
         },
         saveData() {
-            localStorage.setItem(
-                'experienses',
-                JSON.stringify(this.experienses)
-            )
+            localStorage.setItem('projects', JSON.stringify(this.projects))
             this.$router.push({ name: 'experiense' })
         },
         back() {

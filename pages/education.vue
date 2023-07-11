@@ -119,7 +119,6 @@ export default {
 
     mounted() {
         const ed = JSON.parse(localStorage.getItem('education'))
-        console.log(ed)
         if (ed) {
             this.education = ed
         }
@@ -133,7 +132,6 @@ export default {
         },
         saveData() {
             localStorage.setItem('education', JSON.stringify(this.education))
-            // console.log(JSON.parse(localStorage.getItem('education')))
             this.$router.push({ name: 'skill' })
         },
         back() {
