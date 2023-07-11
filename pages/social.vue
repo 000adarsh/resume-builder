@@ -6,7 +6,7 @@
         <v-divider></v-divider>
     </div>
     <v-row>
-        <v-col cols="12" sm="12" md="6" lg="6">
+        <v-col cols="12" sm="12" md="6" lg="6" class="py-1">
             <v-text-field
                 variant="outlined"
                 v-model="linkedin"
@@ -14,7 +14,7 @@
                 label="Linkedin"
             ></v-text-field>
         </v-col>
-        <v-col cols="12" sm="12" md="6" lg="6">
+        <v-col cols="12" sm="12" md="6" lg="6" class="py-1">
             <v-text-field
                 variant="outlined"
                 v-model="twitter"
@@ -22,7 +22,7 @@
                 label="Twitter"
             ></v-text-field>
         </v-col>
-        <v-col cols="12" sm="12" md="6" lg="6">
+        <v-col cols="12" sm="12" md="6" lg="6" class="py-1">
             <v-text-field
                 variant="outlined"
                 v-model="instagram"
@@ -30,7 +30,7 @@
                 label="Instagram"
             ></v-text-field>
         </v-col>
-        <v-col cols="12" sm="12" md="6" lg="6">
+        <v-col cols="12" sm="12" md="6" lg="6" class="py-1">
             <v-text-field
                 variant="outlined"
                 v-model="facebook"
@@ -38,7 +38,7 @@
                 label="Facebook"
             ></v-text-field>
         </v-col>
-        <v-col cols="12" sm="12" md="6" lg="6">
+        <v-col cols="12" sm="12" md="6" lg="6" class="py-1">
             <v-text-field
                 variant="outlined"
                 v-model="github"
@@ -46,7 +46,7 @@
                 label="Github"
             ></v-text-field>
         </v-col>
-        <v-col cols="12" sm="12" md="6" lg="6">
+        <v-col cols="12" sm="12" md="6" lg="6" class="py-1">
             <v-text-field
                 variant="outlined"
                 v-model="website"
