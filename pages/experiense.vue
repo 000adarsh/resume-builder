@@ -1,17 +1,9 @@
 <template>
     <div class="my-4">
-        <v-card-text class="text-center text-h4 py-0"
-            >Project Developed
-        </v-card-text>
+        <v-card-text class="text-center text-h4 py-0">Experienses</v-card-text>
         <v-divider></v-divider>
     </div>
-    <v-card
-        v-for="(item, i) in experienses"
-        width="100%"
-        height="100%"
-        class="pa-2 my-5"
-        elevation="2"
-    >
+    <v-card v-for="(item, i) in projects" class="my-2 pa-2" elevation="2">
         <div class="d-flex justify-end mb-2 d-md-none">
             <v-btn
                 v-if="i != 0"
@@ -21,46 +13,28 @@
                 @click="experienseRemove(i)"
             ></v-btn>
         </div>
-        <v-row>
-            <v-col
-                cols="12"
-                sm="12"
-                md="3"
-                lg="3"
-                class="pb-0 d-flex align-center"
-            >
+        <v-row class="d-flex justify-space-between">
+            <v-col cols="12" sm="12" md="3" lg="3" class="pb-0">
                 <v-text-field
                     variant="outlined"
-                    label="Title / Name"
+                    label="Organization"
                     v-model="item.organization"
                 ></v-text-field>
             </v-col>
 
-            <v-col
-                cols="12"
-                sm="12"
-                md="3"
-                lg="3"
-                class="pb-0 d-flex align-center"
-            >
+            <v-col cols="12" sm="12" md="3" lg="3" class="pb-0">
                 <v-text-field
                     variant="outlined"
-                    label="Link"
-                    v-model="item.link"
+                    label="Position"
+                    v-model="item.position"
                 ></v-text-field>
             </v-col>
 
-            <v-col
-                cols="12"
-                sm="12"
-                md="5"
-                lg="5"
-                class="pb-0 d-flex align-center"
-            >
+            <v-col cols="12" sm="12" md="5" lg="5" class="pb-0">
                 <v-text-field
                     variant="outlined"
-                    label="Duration"
-                    v-model="item.duration"
+                    label="Time Duration"
+                    v-model="item.time"
                 ></v-text-field>
             </v-col>
 
@@ -68,9 +42,9 @@
                 <div class="mb-4 d-none d-md-flex">
                     <v-btn
                         v-if="i != 0"
-                        class="mr-4 mt-2"
                         icon="mdi-delete"
                         size="small"
+                        class="d-none d-md-flex"
                         color="error"
                         @click="experienseRemove(i)"
                     >
@@ -82,7 +56,7 @@
 
     <v-row>
         <v-spacer></v-spacer>
-        <v-btn class="mx-3 mb-6" color="primary" @click="experienseAdder()">
+        <v-btn class="mx-3 my-5" color="primary" @click="experienseAdder()">
             Add
         </v-btn>
     </v-row>
@@ -108,27 +82,24 @@
 <script>
 export default {
     data: () => ({
-        experienses: [{}],
+        projects: [{}],
     }),
     mounted() {
-        const experiense = JSON.parse(localStorage.getItem('experienses'))
-        if (experiense) {
-            this.experienses = experiense
+        const project = JSON.parse(localStorage.getItem('projects'))
+        if (project) {
+            this.projects = project
         }
     },
     methods: {
         experienseAdder() {
-            this.experienses.push({})
+            this.projects.push({})
         },
         experienseRemove(i) {
-            this.experienses.splice(i, 1)
+            this.projects.splice(i, 1)
         },
         saveData() {
-            localStorage.setItem(
-                'experienses',
-                JSON.stringify(this.experienses)
-            )
-            this.$router.push({ name: 'experiense' })
+            localStorage.setItem('projects', JSON.stringify(this.projects))
+            this.$router.push({ name: 'preview' })
         },
         back() {
             this.$router.push({ name: 'language' })

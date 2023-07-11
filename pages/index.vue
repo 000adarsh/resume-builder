@@ -77,9 +77,7 @@ export default {
             about: '',
         }
     },
-    created() {},
     mounted() {
-        localStorage.clear()
         this.firstname = localStorage.getItem('firstname')
         this.lastname = localStorage.getItem('lastname')
         this.phone = localStorage.getItem('phone')
@@ -89,13 +87,15 @@ export default {
     },
     methods: {
         next() {
-            localStorage.setItem('firstname', this.firstname)
-            localStorage.setItem('lastname', this.lastname)
-            localStorage.setItem('phone', this.phone)
-            localStorage.setItem('email', this.email)
-            localStorage.setItem('location', this.location)
-            localStorage.setItem('about', this.about)
-            console.log('next')
+            localStorage.setItem(
+                'firstname',
+                this.firstname ? this.firstname : ''
+            )
+            localStorage.setItem('lastname', this.lastname ? this.lastname : '')
+            localStorage.setItem('phone', this.phone ? this.phone : '')
+            localStorage.setItem('email', this.email ? this.email : '')
+            localStorage.setItem('location', this.location ? this.location : '')
+            localStorage.setItem('about', this.about ? this.about : '')
             this.$router.push({ name: 'social' })
         },
     },
