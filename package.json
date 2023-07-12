@@ -6,16 +6,19 @@
         "dev": "nuxt dev",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
+        "abc": "nodemon ./pdf/pdf.js",
         "postinstall": "nuxt prepare"
     },
     "devDependencies": {
         "@nuxt/devtools": "latest",
         "@types/node": "^18.16.19",
+        "nodemon": "^3.0.1",
         "nuxt": "^3.6.2",
         "prettier": "^3.0.0"
     },
     "dependencies": {
         "@mdi/font": "^7.2.96",
+        "pdfjs": "^2.5.0",
         "sass": "^1.63.6",
         "vuetify": "^3.3.7"
     }
