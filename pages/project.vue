@@ -32,7 +32,7 @@
                 <v-text-field
                     variant="outlined"
                     label="Title / Name"
-                    v-model="item.organization"
+                    v-model="item.title"
                 ></v-text-field>
             </v-col>
 

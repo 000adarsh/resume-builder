@@ -70,8 +70,8 @@
             >
                 <v-text-field
                     variant="outlined"
-                    label="Percentage"
-                    v-model="item.percentage"
+                    label="Description"
+                    v-model="item.description"
                 ></v-text-field>
             </v-col>
             <v-col>

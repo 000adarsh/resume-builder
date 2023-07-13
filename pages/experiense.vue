@@ -30,11 +30,18 @@
                 ></v-text-field>
             </v-col>
 
-            <v-col cols="12" sm="12" md="5" lg="5" class="pb-0">
+            <v-col cols="12" sm="12" md="2" lg="2" class="pb-0">
                 <v-text-field
                     variant="outlined"
                     label="Duration"
                     v-model="item.duration"
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" sm="12" md="3" lg="3" class="pb-0">
+                <v-text-field
+                    variant="outlined"
+                    label="Description"
+                    v-model="item.description"
                 ></v-text-field>
             </v-col>
 
