@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import { pdfMaker } from '../pdf/pdf.mjs'
+import { pdfMaker } from "~/pdf/pdf"
 export default {
     data: () => ({
         data: {
@@ -48,11 +48,13 @@ export default {
         },
     }),
     methods: {
-        run() {
+        async run() {
             console.log('apple')
-            // console.log(pdfMaker())
-            // pdfMaker()
-        },
+            const x = JSON.parse(JSON.stringify(this.data))
+            console.log(x)
+            const d = await pdfMaker(x)
+            console.log(d)
+        },  
     },
 }
 </script>
