@@ -18,7 +18,6 @@
     },
     "dependencies": {
         "@mdi/font": "^7.2.96",
-        "pdfjs": "^2.5.0",
         "sass": "^1.63.6",
         "vuetify": "^3.3.7"
     }
