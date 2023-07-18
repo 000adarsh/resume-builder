@@ -1,4 +1,5 @@
 <template>
+    <navbar />
     <div class="my-4">
         <v-card-text class="text-center text-h4 py-0"
             >Social Details
