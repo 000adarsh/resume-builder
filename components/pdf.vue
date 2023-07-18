@@ -35,7 +35,7 @@
                 </v-col>
             </v-row>
             <v-row class="mt-5">
-                <v-col style="background-color: aquamarine" cols="5">
+                <v-col cols="5">
                     <div class="d-flex flex-column mb-6">
                         <h4>
                             {{ location }}
