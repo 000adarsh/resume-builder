@@ -119,7 +119,9 @@ export default {
     }),
 
     mounted() {
-        const ed = JSON.parse(localStorage.getItem('education'))
+        const ed = localStorage.getItem('education')
+            ? JSON.parse(localStorage.getItem('education'))
+            : ''
         if (ed) {
             this.education = ed
         }
@@ -132,7 +134,14 @@ export default {
             this.education.splice(i, 1)
         },
         saveData() {
-            localStorage.setItem('education', JSON.stringify(this.education))
+            if (this.education[0].institute) {
+                localStorage.setItem(
+                    'education',
+                    JSON.stringify(this.education)
+                )
+            } else {
+                localStorage.setItem('education', [])
+            }
             this.$router.push({ name: 'skill' })
         },
         back() {

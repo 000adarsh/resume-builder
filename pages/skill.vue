@@ -55,7 +55,9 @@ export default {
         skills: [{}],
     }),
     mounted() {
-        const skill = JSON.parse(localStorage.getItem('skills'))
+        const skill = localStorage.getItem('skills')
+            ? JSON.parse(localStorage.getItem('skills'))
+            : ''
         if (skill) {
             this.skills = skill
         }
@@ -68,7 +70,11 @@ export default {
             this.skills.splice(i, 1)
         },
         saveData() {
-            localStorage.setItem('skills', JSON.stringify(this.skills))
+            if (this.skills[0].skill) {
+                localStorage.setItem('skills', JSON.stringify(this.skills))
+            } else {
+                localStorage.setItem('skills', [])
+            }
             this.$router.push({ name: 'language' })
         },
         back() {

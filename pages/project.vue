@@ -112,7 +112,9 @@ export default {
         projects: [{}],
     }),
     mounted() {
-        const project = JSON.parse(localStorage.getItem('projects'))
+        const project = localStorage.getItem('projects')
+            ? JSON.parse(localStorage.getItem('projects'))
+            : ''
         if (project) {
             this.projects = project
         }
@@ -125,7 +127,11 @@ export default {
             this.projects.splice(i, 1)
         },
         saveData() {
-            localStorage.setItem('projects', JSON.stringify(this.projects))
+            if (this.projects[0].project) {
+                localStorage.setItem('projects', JSON.stringify(this.projects))
+            } else {
+                localStorage.setItem('projects', [])
+            }
             this.$router.push({ name: 'experiense' })
         },
         back() {

@@ -4,12 +4,11 @@
         <v-card-text class="text-center text-h4 py-0">Languages</v-card-text>
         <v-divider></v-divider>
     </div>
-    <v-card
+    <div
         v-for="(item, i) in languages"
         width="100%"
         height="100%"
         class="pa-2 my-5"
-        elevation="2"
     >
         <div class="d-flex justify-end mb-2 d-md-none">
             <v-btn
@@ -25,8 +24,8 @@
             <v-col
                 cols="12"
                 sm="12"
-                md="6"
-                lg="6"
+                md="8"
+                lg="8"
                 class="pb-0 d-flex align-center"
             >
                 <v-text-field
@@ -34,20 +33,6 @@
                     label="Language"
                     v-model="item.language"
                 ></v-text-field>
-            </v-col>
-            <v-col
-                cols="12"
-                sm="12"
-                md="5"
-                lg="5"
-                class="pb-0 d-flex align-center"
-            >
-                <v-select
-                    label="Select"
-                    :items="['Fluent', 'Medium', 'Begginer']"
-                    variant="outlined"
-                    v-model="item.select"
-                ></v-select>
             </v-col>
             <v-col cols="12" sm="12" md="1" lg="1">
                 <div class="mb-4 d-none d-md-flex">
@@ -61,7 +46,7 @@
                 </div>
             </v-col>
         </v-row>
-    </v-card>
+    </div>
     <v-row>
         <v-spacer></v-spacer>
         <v-btn class="mx-3 mb-6" color="primary" @click="languageAdder()">
@@ -93,7 +78,9 @@ export default {
         languages: [{}],
     }),
     mounted() {
-        const language = JSON.parse(localStorage.getItem('languages'))
+        const language = localStorage.getItem('languages')
+            ? JSON.parse(localStorage.getItem('languages'))
+            : ''
         if (language) {
             this.languages = language
         }
@@ -106,7 +93,14 @@ export default {
             this.languages.splice(i, 1)
         },
         saveData() {
-            localStorage.setItem('languages', JSON.stringify(this.languages))
+            if (this.languages[0].language) {
+                localStorage.setItem(
+                    'languages',
+                    JSON.stringify(this.languages)
+                )
+            } else {
+                localStorage.setItem('languages', [])
+            }
             this.$router.push({ name: 'project' })
         },
         back() {

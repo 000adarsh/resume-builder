@@ -93,7 +93,9 @@ export default {
         experienses: [{}],
     }),
     mounted() {
-        const project = JSON.parse(localStorage.getItem('experienses'))
+        const project = localStorage.getItem('experienses')
+            ? JSON.parse(localStorage.getItem('experienses'))
+            : ''
         if (project) {
             this.experienses = project
         }
@@ -106,10 +108,14 @@ export default {
             this.experienses.splice(i, 1)
         },
         saveData() {
-            localStorage.setItem(
-                'experienses',
-                JSON.stringify(this.experienses)
-            )
+            if (this.experienses[0].organization) {
+                localStorage.setItem(
+                    'experienses',
+                    JSON.stringify(this.experienses)
+                )
+            } else {
+                localStorage.setItem('experienses', [])
+            }
             this.$router.push({ name: 'preview' })
         },
         back() {
