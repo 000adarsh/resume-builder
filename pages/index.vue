@@ -1,6 +1,6 @@
 <template>
     <navbar />
-    <form class="pt-4">
+    <v-form class="pt-4" ref="form" v-model="valid">
         <div class="my-4">
             <v-card-text class="text-center text-h4 py-0"
                 >Personal Details</v-card-text
@@ -100,17 +100,19 @@
                 class="mx-3"
                 append-icon="mdi-chevron-right"
                 color="primary"
+                :disabled="!valid"
                 @click="next()"
             >
                 next
             </v-btn>
         </v-row>
-    </form>
+    </v-form>
 </template>
 <script>
 export default {
     data() {
         return {
+            valid: false,
             firstname: '',
             lastname: '',
             phone: '',

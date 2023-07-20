@@ -28,10 +28,11 @@ export default {
     methods: {
         pdf() {
             this.printPdf = false
-            // delay 5 seconds
+            // delay  seconds
             setTimeout(() => {
                 window.print()
-            }, 3000)
+            }, 2000)
+            localStorage.clear()
         },
         back() {
             this.$router.push({ name: 'experiense' })
