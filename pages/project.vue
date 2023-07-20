@@ -32,7 +32,7 @@
             >
                 <v-text-field
                     variant="outlined"
-                    label="Title / Name"
+                    label="Title"
                     v-model="item.title"
                 ></v-text-field>
             </v-col>

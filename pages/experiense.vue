@@ -36,6 +36,7 @@
                     variant="outlined"
                     label="Duration"
                     v-model="item.duration"
+                    hint="Jan / 2019 - Dec / 2020"
                 ></v-text-field>
             </v-col>
             <v-col cols="12" sm="12" md="3" lg="3" class="pb-0">

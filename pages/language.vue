@@ -24,8 +24,8 @@
             <v-col
                 cols="12"
                 sm="12"
-                md="8"
-                lg="8"
+                md="6"
+                lg="6"
                 class="pb-0 d-flex align-center"
             >
                 <v-text-field
@@ -33,6 +33,20 @@
                     label="Language"
                     v-model="item.language"
                 ></v-text-field>
+            </v-col>
+            <v-col
+                cols="12"
+                sm="12"
+                md="5"
+                lg="5"
+                class="pb-0 d-flex align-center"
+            >
+                <v-select
+                    label="Select"
+                    :items="['Fluent', 'Intermediate', 'Basic']"
+                    variant="outlined"
+                    v-model="item.select"
+                ></v-select>
             </v-col>
             <v-col cols="12" sm="12" md="1" lg="1">
                 <div class="mb-4 d-none d-md-flex">
