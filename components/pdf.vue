@@ -86,7 +86,7 @@
                             </h2>
                             <h4 class="py-1" v-for="skill in skills">
                                 <v-icon>mdi-circle-medium</v-icon>
-                                {{ skill.skill }}
+                                {{ capitalize(skill.skill) }}
                             </h4>
                         </div>
                         <div v-if="languages.length">
@@ -96,7 +96,8 @@
                             </h2>
                             <h4 class="py-1" v-for="language in languages">
                                 <v-icon>mdi-circle-medium</v-icon>
-                                {{ language.language }}
+                                {{ capitalize(language.language) }} -
+                                {{ language.select }}
                             </h4>
                         </div>
                     </div>
@@ -105,7 +106,7 @@
                     <div v-if="about">
                         <h2 class="text-h5 font-weight-bold">About</h2>
                         <h5 class="pl-2 mt-2">
-                            {{ about }}
+                            {{ capitalize(about) }}
                         </h5>
                     </div>
                     <div v-if="experienses.length">
@@ -117,15 +118,15 @@
                         >
                             <h4>
                                 <v-icon>mdi-circle-medium</v-icon>
-                                {{ experiense.organization }} /
-                                {{ experiense.position }}
+                                {{ capitalize(experiense.organization) }} /
+                                {{ capitalize(experiense.position) }}
                             </h4>
                             <h5 class="pl-5">
                                 Duration - {{ experiense.duration }}
                             </h5>
                             <h5>
                                 <v-icon>mdi-arrow-right-thick</v-icon
-                                >{{ experiense.description }}
+                                >{{ capitalize(experiense.description) }}
                             </h5>
                         </div>
                     </div>
@@ -135,12 +136,12 @@
                         <div class="pl-2 mt-2" v-for="project in projects">
                             <h4>
                                 <v-icon>mdi-circle-medium</v-icon>
-                                {{ project.title }}
+                                {{ capitalize(project.title) }}
                             </h4>
                             <h5 class="pl-5">Link - {{ project.link }}</h5>
                             <h5>
                                 <v-icon>mdi-arrow-right-thick</v-icon
-                                >{{ project.description }}
+                                >{{ capitalize(project.description) }}
                             </h5>
                         </div>
                     </div>
@@ -150,12 +151,13 @@
                         <div class="pl-2 mt-2" v-for="ed in education">
                             <h4>
                                 <v-icon>mdi-circle-medium</v-icon
-                                >{{ ed.course }} / {{ ed.institute }}
+                                >{{ capitalize(ed.course) }} /
+                                {{ capitalize(ed.institute) }}
                             </h4>
                             <h5 class="pl-5">Passing year - {{ ed.year }}</h5>
                             <h5>
                                 <v-icon>mdi-arrow-right-thick</v-icon
-                                >{{ ed.description }}
+                                >{{ capitalize(ed.description) }}
                             </h5>
                         </div>
                     </div>
@@ -247,6 +249,11 @@ export default {
         this.education = localStorage.getItem('education')
             ? JSON.parse(localStorage.getItem('education'))
             : []
+    },
+    methods: {
+        capitalize(data) {
+            return data.charAt(0).toUpperCase() + data.slice(1)
+        },
     },
 }
 </script>
