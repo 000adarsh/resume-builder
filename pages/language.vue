@@ -55,7 +55,7 @@
                         icon="mdi-delete"
                         size="small"
                         color="error"
-                        @click="deletelist(i)"
+                        @click="languageRemove(i)"
                     ></v-btn>
                 </div>
             </v-col>
