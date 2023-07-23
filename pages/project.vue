@@ -127,7 +127,7 @@ export default {
             this.projects.splice(i, 1)
         },
         saveData() {
-            if (this.projects[0].project) {
+            if (this.projects[0].title) {
                 localStorage.setItem('projects', JSON.stringify(this.projects))
             } else {
                 localStorage.setItem('projects', [])
