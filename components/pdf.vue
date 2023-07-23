@@ -20,23 +20,23 @@
                             {{ firstName }} {{ lastName }}
                         </h1>
                         <h2
-                            style="color: #474545"
+                            style="color: rgb(128, 128, 128)"
                             class="text-h5 ml-10 mt-3 text-color-error font-weight-bold"
                         >
                             {{ tagline }}
                         </h2>
                         <v-divider
                             thickness="5px"
-                            class="mt-2"
+                            class="mt-2 border-opacity-50"
                             inset
-                            color="error"
+                            color=" rgb(128,128,128)"
                         ></v-divider>
                     </div>
                 </v-col>
             </v-row>
             <v-row class="mt-5">
-                <v-col cols="5">
-                    <div class="d-flex flex-column mb-6">
+                <v-col cols="5" class="print-color" style="border-radius: 2px">
+                    <div class="d-flex flex-column mb-2">
                         <h4>
                             {{ location }}
                         </h4>
@@ -80,7 +80,11 @@
                             {{ facebook }}
                         </h4>
                         <div v-if="skills.length">
-                            <v-divider thickness="5px" class="my-2"></v-divider>
+                            <v-divider
+                                thickness="5px"
+                                class="my-4 border-opacity-50"
+                                color="rgb(128,128,128)"
+                            ></v-divider>
                             <h2 class="text-h5 my-1 font-weight-bold">
                                 Skills
                             </h2>
@@ -90,7 +94,11 @@
                             </h4>
                         </div>
                         <div v-if="languages.length">
-                            <v-divider thickness="5px" class="my-2"></v-divider>
+                            <v-divider
+                                thickness="5px"
+                                class="my-4 border-opacity-50"
+                                color="rgb(128,128,128)"
+                            ></v-divider>
                             <h2 class="text-h5 my-1 font-weight-bold">
                                 Languages
                             </h2>
@@ -110,7 +118,11 @@
                         </h5>
                     </div>
                     <div v-if="experienses.length">
-                        <v-divider thickness="5px" class="my-4"></v-divider>
+                        <v-divider
+                            thickness="5px"
+                            class="my-4 border-opacity-75"
+                            color="rgb(128,128,128)"
+                        ></v-divider>
                         <h2 class="text-h5 font-weight-bold">Experienses</h2>
                         <div
                             class="pl-2 mt-2 font-weight-bold"
@@ -131,7 +143,11 @@
                         </div>
                     </div>
                     <div v-if="projects.length">
-                        <v-divider thickness="5px" class="my-4"></v-divider>
+                        <v-divider
+                            thickness="5px"
+                            class="my-4 border-opacity-75"
+                            color="rgb(128,128,128)"
+                        ></v-divider>
                         <h2 class="text-h5 font-weight-bold">Projects</h2>
                         <div class="pl-2 mt-2" v-for="project in projects">
                             <h4>
@@ -146,7 +162,11 @@
                         </div>
                     </div>
                     <div v-if="education.length">
-                        <v-divider thickness="5px" class="my-4"></v-divider>
+                        <v-divider
+                            thickness="5px"
+                            class="my-4 border-opacity-75"
+                            color="rgb(128,128,128)"
+                        ></v-divider>
                         <h2 class="text-h5 font-weight-bold">Education</h2>
                         <div class="pl-2 mt-2" v-for="ed in education">
                             <h4>
@@ -259,3 +279,15 @@ export default {
     },
 }
 </script>
+<style>
+.print-color {
+    background-color: rgba(175, 255, 228, 0.7);
+    min-height: 700px;
+}
+@media print {
+    .print-color {
+        background-color: rgb(175, 255, 228, 0.7);
+        print-color-adjust: exact;
+    }
+}
+</style>
